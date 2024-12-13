@@ -1,15 +1,17 @@
 # Create a second program that will read the file questions.txt, formatted as described above, and pose the questions to the user. 
 # The program will keep score of the number of questions answered correctly.
 score = 0
+
 questions = [
-    {"q": "Where were french fries originally made?", "c": {"a": "Belgium", "b": "France", "c": "America", "d": "Italy"}, "a": "a"},]
+    ["Where were french fries originally made?", "a", ["a) Belgium", "b) France", "c) America", "d) Italy"]],
+]
 
-
-for q in questions:
-    print(q["q"])
-    for k, v in q["c"].items():
-        print(f"{k}) {v}")
-    if input("Answer (a/b/c/d): ").lower() == q["a"]:
+for question in questions:
+    print(question[0])
+    for option in question[2]:
+        print(option)
+    answer = input("Answer (a/b/c/d): ").lower()
+    if answer == question[1]:
         print("Correct!\n")
         score += 1
     else:
